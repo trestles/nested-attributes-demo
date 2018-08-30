@@ -23,13 +23,23 @@
     </div>
   <% end %>
 
+
   <%= f.fields_for :interest_users do |ff| %>
+    <% binding.pry %>
     <div>
     <%= ff.hidden_field :interest_id %>
     <%= ff.check_box :_destroy, {:checked => ff.object.persisted?}, '0', '1' %>
     <%= ff.label :_destroy, ff.object.interest.name %>
     </div>
   <% end %>
+
+  
+
+  <% @user.all_sites.each do |site| %>
+      <div><%=site.id %></div>
+  <% end %>
+  all sites: <%=all_sites.length %>
+
 
   <h2>Tasks</h2>
   <%= f.fields_for :tasks do |ff| %>

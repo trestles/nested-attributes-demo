@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, :allow_destroy => true, :reject_if => :all_blank
 
   validates_presence_of :email
+
+  def all_sites
+    Site.all
+  end
 end

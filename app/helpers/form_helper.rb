@@ -1,5 +1,6 @@
 module FormHelper
   def setup_user(user)
+    binding.pry
     user.address ||= Address.new
     (Interest.all - user.interests).each do |interest|
       user.interest_users.build(:interest => interest)
